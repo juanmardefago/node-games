@@ -20,3 +20,14 @@ snake
 tanks
 -----
 ![tanks](https://raw.githubusercontent.com/mdibaiee/node-games/master/tanks.gif)
+
+
+You can also select which language to use!
+
+```
+node-games <game> [language]
+```
+
+Current supported languages:
+* English (en)
+* Spanish (es)

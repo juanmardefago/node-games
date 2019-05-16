@@ -21,7 +21,7 @@ function loop() {
 
   if (one.dead || two.dead) {
     let num = one.dead ? '2' : '1';
-    const msg = `Player ${num} won!`;
+    const msg = global.winMessage(num);
     ui.cursor.red();
     ui.cursor.bold();
 
@@ -50,12 +50,12 @@ function loop() {
 
   ui.cursor.goto(0, 1);
   if (turn() === one) ui.cursor.hex('#54ffff');
-  ui.write('Player 1');
+  ui.write(global.playerSign(1));
   ui.cursor.reset();
   ui.cursor.goto(0, 2);
-  ui.write('Health: ' + one.health);
+  ui.write(global.health(one.health));
   ui.cursor.goto(0, 3);
-  ui.write('Angle: ' + parseInt(one.angle));
+  ui.write(global.angle(parseInt(one.angle)));
 
   two.draw();
   two.bullets.forEach((bullet, i) => {
@@ -75,12 +75,12 @@ function loop() {
 
   ui.cursor.goto(ui.output.columns - 10, 1);
   if (turn() === two) ui.cursor.hex('#54ffff');
-  ui.write('Player 2');
+  ui.write(global.playerSign(2));
   ui.cursor.reset();
   ui.cursor.goto(ui.output.columns - 10, 2);
-  ui.write('Health: ' + two.health);
+  ui.write(global.health(two.health));
   ui.cursor.goto(ui.output.columns - 10, 3);
-  ui.write('Angle: ' + parseInt(two.angle));
+  ui.write(global.angle(parseInt(two.angle)));
 
   setTimeout(loop, FRAME);
 }
